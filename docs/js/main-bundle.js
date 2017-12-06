@@ -30,6 +30,7 @@ System.registerDynamic('main.js', [], false, function ($__require, $__exports, $
         }
 
         function getCardinal(angle) {
+            alert('angle');
             alert(angle);
             const directions = 8;
             const degree = 360 / directions;
