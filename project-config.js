@@ -53,7 +53,7 @@ module.exports = {
 
         /* Export directory configuration */
         'export': {
-            basePath: 'export',
+            basePath: 'docs',
             assetPaths: {
                 api: 'api',
                 css: 'css',
