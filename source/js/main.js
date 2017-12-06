@@ -24,6 +24,7 @@ function compassHeading(alpha, beta, gamma) {
 }
 
 function getCardinal(angle) {
+    alert(angle);
     const directions = 8;
     const degree = 360 / directions;
     angle = angle + degree / 2;
