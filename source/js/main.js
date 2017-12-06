@@ -62,7 +62,6 @@ window.addEventListener('deviceorientation', e => {
         heading = e.webkitCompassHeading;
     } else {
         heading = compassHeading(e.alpha, e.beta, e.gamma);
-        alert(compassHeading(e.alpha, e.beta, e.gamma));
     }
 
     el.innerHTML = getCardinal(heading);
