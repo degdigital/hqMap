@@ -3,7 +3,31 @@ System.registerDynamic('main.js', [], false, function ($__require, $__exports, $
 
     (function ($__global) {
         $__global['getCardinal'] = getCardinal;
+        $__global['compassHeading'] = compassHeading;
         const el = document.querySelector('.js-app');
+
+        function compassHeading(alpha, beta, gamma) {
+            const alphaRad = alpha * (Math.PI / 180);
+            const betaRad = beta * (Math.PI / 180);
+            const gammaRad = gamma * (Math.PI / 180);
+            const cA = Math.cos(alphaRad);
+            const sA = Math.sin(alphaRad);
+            const sB = Math.sin(betaRad);
+            const cG = Math.cos(gammaRad);
+            const sG = Math.sin(gammaRad);
+            const rA = -cA * sG - sA * sB * cG;
+            const rB = -sA * sG + cA * sB * cG;
+            let compassHeading = Math.atan(rA / rB);
+
+            if (rB < 0) {
+                compassHeading += Math.PI;
+            } else if (rA < 0) {
+                compassHeading += 2 * Math.PI;
+            }
+            compassHeading *= 180 / Math.PI;
+
+            return compassHeading;
+        }
 
         function getCardinal(angle) {
             const directions = 8;
@@ -37,9 +61,14 @@ System.registerDynamic('main.js', [], false, function ($__require, $__exports, $
             return 'North';
         }
 
-        window.addEventListener('deviceorientation', function (event) {
-            el.innerHTML = getCardinal(event.webkitCompassHeading);
-        });
+        window.addEventListener('deviceorientation', function (e) {
+
+            let heading = null;
+            if (e.absolute === true && e.alpha !== null) {
+                heading = compassHeading(e.alpha, e.beta, e.gamma);
+            }
+            el.innerHTML = getCardinal(heading);
+        }, false);
     })(this);
 
     return _retrieveGlobal();
