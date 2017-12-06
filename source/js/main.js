@@ -56,12 +56,17 @@ function getCardinal(angle) {
     return 'North';
 }
 
-window.addEventListener('deviceorientation', function(e) {
+window.addEventListener('deviceorientation', e => {
 
     let heading = null;
-    if (e.absolute === true && e.alpha !== null) {
-        heading = compassHeading(e.alpha, e.beta, e.gamma);
+    if (e.webkitCompassHeading) {
+        heading = e.webkitCompassHeading;
+    } else {
+        if (e.absolute === true && e.alpha !== null) {
+            heading = compassHeading(e.alpha, e.beta, e.gamma);
+        }
     }
+    
     el.innerHTML = getCardinal(heading);
 
 }, false);
