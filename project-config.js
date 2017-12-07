@@ -163,13 +163,13 @@ module.exports = {
                         /* Array of module bundles config objects */
                         items: [
                             {
-                                /* Name of entry module for this bundle */
                                 entry: 'main',
-
-                                /* Array of modules to exclude from this bundle */
                                 exclude: [],
-
-                                /* Array of polyfills for this bundle */
+                                polyfills: []
+                            },
+                            {
+                                entry: 'components/geolocation',
+                                exclude: ['main'],
                                 polyfills: []
                             }
                         ]

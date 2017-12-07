@@ -12,14 +12,75 @@ System.config({baseURL: "js",defaultJSExtensions: true,
   },
   bundles: {
     "main-bundle.js": [
-      "main.js"
+      "main.js",
+      "components/compass.js",
+      "github:DEGJS/moduleLoader@3.0.1.js",
+      "github:DEGJS/moduleLoader@3.0.1/moduleLoader.js",
+      "github:DEGJS/objectUtils@2.1.0.js",
+      "github:DEGJS/objectUtils@2.1.0/objectUtils.js",
+      "npm:babel-runtime@5.8.38/core-js/object/keys.js",
+      "npm:core-js@1.2.7/library/fn/object/keys.js",
+      "npm:core-js@1.2.7/library/modules/$.core.js",
+      "npm:core-js@1.2.7/library/modules/es6.object.keys.js",
+      "npm:core-js@1.2.7/library/modules/$.object-sap.js",
+      "npm:core-js@1.2.7/library/modules/$.fails.js",
+      "npm:core-js@1.2.7/library/modules/$.export.js",
+      "npm:core-js@1.2.7/library/modules/$.ctx.js",
+      "npm:core-js@1.2.7/library/modules/$.a-function.js",
+      "npm:core-js@1.2.7/library/modules/$.global.js",
+      "npm:core-js@1.2.7/library/modules/$.to-object.js",
+      "npm:core-js@1.2.7/library/modules/$.defined.js",
+      "npm:babel-runtime@5.8.38/core-js/object/assign.js",
+      "npm:core-js@1.2.7/library/fn/object/assign.js",
+      "npm:core-js@1.2.7/library/modules/es6.object.assign.js",
+      "npm:core-js@1.2.7/library/modules/$.object-assign.js",
+      "npm:core-js@1.2.7/library/modules/$.iobject.js",
+      "npm:core-js@1.2.7/library/modules/$.cof.js",
+      "npm:core-js@1.2.7/library/modules/$.js",
+      "npm:babel-runtime@5.8.38/helpers/define-property.js",
+      "npm:babel-runtime@5.8.38/core-js/object/define-property.js",
+      "npm:core-js@1.2.7/library/fn/object/define-property.js",
+      "npm:babel-runtime@5.8.38/core-js/array/from.js",
+      "npm:core-js@1.2.7/library/fn/array/from.js",
+      "npm:core-js@1.2.7/library/modules/es6.array.from.js",
+      "npm:core-js@1.2.7/library/modules/$.iter-detect.js",
+      "npm:core-js@1.2.7/library/modules/$.wks.js",
+      "npm:core-js@1.2.7/library/modules/$.uid.js",
+      "npm:core-js@1.2.7/library/modules/$.shared.js",
+      "npm:core-js@1.2.7/library/modules/core.get-iterator-method.js",
+      "npm:core-js@1.2.7/library/modules/$.iterators.js",
+      "npm:core-js@1.2.7/library/modules/$.classof.js",
+      "npm:core-js@1.2.7/library/modules/$.to-length.js",
+      "npm:core-js@1.2.7/library/modules/$.to-integer.js",
+      "npm:core-js@1.2.7/library/modules/$.is-array-iter.js",
+      "npm:core-js@1.2.7/library/modules/$.iter-call.js",
+      "npm:core-js@1.2.7/library/modules/$.an-object.js",
+      "npm:core-js@1.2.7/library/modules/$.is-object.js",
+      "npm:core-js@1.2.7/library/modules/es6.string.iterator.js",
+      "npm:core-js@1.2.7/library/modules/$.iter-define.js",
+      "npm:core-js@1.2.7/library/modules/$.set-to-string-tag.js",
+      "npm:core-js@1.2.7/library/modules/$.has.js",
+      "npm:core-js@1.2.7/library/modules/$.iter-create.js",
+      "npm:core-js@1.2.7/library/modules/$.hide.js",
+      "npm:core-js@1.2.7/library/modules/$.descriptors.js",
+      "npm:core-js@1.2.7/library/modules/$.property-desc.js",
+      "npm:core-js@1.2.7/library/modules/$.redefine.js",
+      "npm:core-js@1.2.7/library/modules/$.library.js",
+      "npm:core-js@1.2.7/library/modules/$.string-at.js"
+    ],
+    "components/geolocation-bundle.js": [
+      "components/geolocation.js"
     ]
   },
 
   map: {
+    "DEGJS/moduleLoader": "github:DEGJS/moduleLoader@3.0.1",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "core-js": "npm:core-js@1.2.7",
+    "github:DEGJS/moduleLoader@3.0.1": {
+      "DEGJS/objectUtils": "github:DEGJS/objectUtils@2.1.0"
+    },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
     },
@@ -82,7 +143,7 @@ var polyfillTests = {
 };
 var bundleHelper = function() {
 
-	var bundles = [{filename: 'main-bundle.js',tests:[]}],
+	var bundles = [{filename: 'main-bundle.js',tests:[]},{filename: 'components/geolocation-bundle.js',tests:[]}],
 		map = {},
 		baseURL = "<%= jsUrl %>";
 
