@@ -22,7 +22,6 @@ const routing = function(spaces, options = {}) {
 		}
 		settings = Object.assign({}, defaults, options);
 		const map = createMap(spaces);
-		debugger;
 		graph = createGraph(map);
 		render(spaces, {...settings, 
 			getRoute: getRoute

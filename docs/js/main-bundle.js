@@ -490,7 +490,6 @@ System.register('components/routing/routing.js', ['npm:babel-runtime@5.8.38/help
 					}
 					settings = _Object$assign({}, defaults, options);
 					var map = createMap(spaces);
-					debugger;
 					graph = createGraph(map);
 					render(spaces, _extends({}, settings, {
 						getRoute: getRoute
