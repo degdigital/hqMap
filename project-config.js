@@ -135,7 +135,7 @@ module.exports = {
 
             /* Enable Javascript Linting [all, build, export] */
             linter: {
-                enable: 'all'
+                enable: ''
             },
 
             /* Javscript Processor Configuration */
