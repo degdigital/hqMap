@@ -21,7 +21,7 @@ const render = function(spaces, settings) {
 
 	function renderRoute() {
 		const route = settings.getRoute(startSelectEl.value, endSelectEl.value);
-		const routeNames = route.map(routeItem => `${routeItem.name}`);
+		const routeNames = route.map(routeItem => `${routeItem.longName}`);
         replaceContent(outputEl, `
         	<strong>Fastest route:</strong><br>
         	${routeNames.join('<br>')}
@@ -55,7 +55,7 @@ const render = function(spaces, settings) {
 			const floorSpaces = spaces.filter(space => space.floor === floor);
 			const floorOutput = floorSpaces.reduce((output, space, index) => `
 		        ${output}
-		        <option value="${space.id}"${selectedIndex === index ? ' selected' : ''}>${space.name}</option> 
+		        <option value="${space.id}"${selectedIndex === index ? ' selected' : ''}>${space.longName}</option> 
 		    `, '');
 		    floorsOutput += `
 		    	<optgroup label="Floor ${floor}">

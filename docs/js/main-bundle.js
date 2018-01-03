@@ -393,7 +393,7 @@ System.register('components/routing/rendering.js', ['npm:babel-runtime@5.8.38/co
 				function renderRoute() {
 					var route = settings.getRoute(startSelectEl.value, endSelectEl.value);
 					var routeNames = route.map(function (routeItem) {
-						return '' + routeItem.name;
+						return '' + routeItem.longName;
 					});
 					replaceContent(outputEl, '\n        \t<strong>Fastest route:</strong><br>\n        \t' + routeNames.join('<br>') + '\n        ');
 				}
@@ -418,7 +418,7 @@ System.register('components/routing/rendering.js', ['npm:babel-runtime@5.8.38/co
 							return space.floor === floor;
 						});
 						var floorOutput = floorSpaces.reduce(function (output, space, index) {
-							return '\n\t\t        ' + output + '\n\t\t        <option value="' + space.id + '"' + (selectedIndex === index ? ' selected' : '') + '>' + space.name + '</option> \n\t\t    ';
+							return '\n\t\t        ' + output + '\n\t\t        <option value="' + space.id + '"' + (selectedIndex === index ? ' selected' : '') + '>' + space.longName + '</option> \n\t\t    ';
 						}, '');
 						floorsOutput += '\n\t\t    \t<optgroup label="Floor ' + floor + '">\n\t\t    \t\t' + floorOutput + '\n\t\t    \t</optgroup>\n\t\t    ';
 					});
